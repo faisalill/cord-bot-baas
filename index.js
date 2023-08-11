@@ -24,17 +24,16 @@ let utopiaPhpChain = null
 
 async function loadVectorStores() {
   
-  const promptTemplate = `Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
-
-       You are a chatbot for a backend as a service app called appwrite. I have fed documents using langchain try to use them to answer the questions .node-appwrite is node.js server sdk and appwrite is the javascript sdk. 
+  const promptTemplate = `You are an AI chat bot trained on chats on Appwrite Support Discord Channel. You need to help developers answer Appwrite related
+  question only. You will be given an input and you need to respond with the appropriate answer from the
+  reference docs.
 
        Question: {question}`;
   
        const prompt = PromptTemplate.fromTemplate(promptTemplate);
 
        const utopiaPromptTemplate = `Use the following pieces of context to answer the question at the end. If you don't know the answer, just say that you don't know, don't try to make up an answer.
-
-        You are a chatbot for utopia-php a php framework. I have fed documents using langchain try to use them to answer the questions .utopia-php has mutiple frameworks under it.
+       You are a chatbot for utopia-php a php framework. I have fed documents using langchain try to use them to answer the questions .utopia-php has mutiple frameworks under it.
 
        Question: {question}`;
   
