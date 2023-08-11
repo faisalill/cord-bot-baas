@@ -12,11 +12,11 @@ const embeddings = new OpenAIEmbeddings({
 })
 
 const appwriteDocsStore = new Promise((resolve, reject) => {
-    const loader = new TextLoader("./appwrite-docs/appwriteDocs.txt");
+    const loader = new TextLoader("./support-archive/archive-support.txt");
 loader.load().then(async (data) => {
     const textSplitter = new RecursiveCharacterTextSplitter({
-        chunkSize: 500,
-        chunkOverlap: 0,
+        chunkSize: 1000,
+        chunkOverlap: 64,
     });
     textSplitter.splitDocuments(data).then(async(documents)=>{
         let appwriteStore = await MemoryVectorStore.fromDocuments(documents, embeddings);

@@ -47,7 +47,7 @@ async function loadVectorStores() {
       combineDocumentsChain: loadQAStuffChain(model, { prompt }),
       retriever: appwriteVectorStore.asRetriever(),
     });
-    console.log("Appwrite vector store loaded")
+    console.log("Support(Archive) vectors loaded")
   })
 
   utopiaPhpDocStore.then((vectorStore)=>{
@@ -74,6 +74,7 @@ app.post('/appwrite', async (req, res) => {
       query: question,
     }).then((answer)=>{
     res.send(answer);
+    console.log(answer.text);
     })
   }
   else {
